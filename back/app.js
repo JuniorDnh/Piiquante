@@ -1,7 +1,6 @@
 const express = require('express'); // Importation d'Express
 const mongoose = require('mongoose'); // Importation de Mangoose
 const Sauces = require('./models/sauces');
-
 const userRoutes = require('./routes/user');
 const bodyParser = require('body-parser');
 const path = require('path');
