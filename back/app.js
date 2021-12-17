@@ -1,9 +1,9 @@
 const express = require('express'); // Importation d'Express
 const mongoose = require('mongoose'); // Importation de Mangoose
-const Sauces = require('./models/sauces');
+const sauces = require('./models/sauces');
 const userRoutes = require('./routes/user');
 const bodyParser = require('body-parser');
-const path = require('path');
+
 const app = express();
 
 
@@ -15,7 +15,7 @@ app.use((req, res, next) => {
     res.json({message: 'Votre requête a bien été reçue.'});
     next();
 });
-app.use('/api/sauces', Sauces);
+app.use('/api/sauces', sauces);
 app.use('/api/auth', userRoutes);
 app.use(bodyParser.json());
 
@@ -30,7 +30,5 @@ mongoose.connect('mongodb+srv://DanhoIJ_p6:passwordp6@cluster0.028gc.mongodb.net
 
 
  
-
-
 
 module.exports = app;
