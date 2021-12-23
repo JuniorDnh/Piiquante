@@ -1,6 +1,6 @@
 const express = require('express'); // on importe express
 
-const bodyParser = require('body-parser'); //on importe bodyparser pour extraire l'objet JSON des requêtes
+
 const mongoose = require('mongoose'); // on importe mongoose
 const path = require('path'); //on importe path pour avoir accès au chemin de notre système de fichiers
 
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(helmet());
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
