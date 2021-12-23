@@ -15,7 +15,6 @@ const mongoSanitize = require('express-mongo-sanitize'); // pour nettoyer le cor
 
 
 //connexion à la BDD
-//mongoose.connect('mongodb+srv://Admin_P6:OC-P6-admin@cluster-oc-p6.iaw1h.mongodb.net/Cluster-OC-P6?retryWrites=true&w=majority',
 mongoose.connect('mongodb+srv://DanhoIJ_p6:passwordp6@cluster0.028gc.mongodb.net/p6Db?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
