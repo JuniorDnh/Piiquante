@@ -1,11 +1,11 @@
-const express = require('express'); // on importe express
+const express = require('express'); // Importation : express
 
 
-const mongoose = require('mongoose'); // on importe mongoose
-const path = require('path'); //on importe path pour avoir accès au chemin de notre système de fichiers
+const mongoose = require('mongoose'); // Importation : mongoose
+const path = require('path'); //Importation : path pour avoir accès au chemin de notre système de fichiers
 
-const sauceRoutes = require('./routes/sauce'); //on importe nos routes sauce
-const userRoutes = require('./routes/user'); //on importe nos routes utilisateur
+const sauceRoutes = require('./routes/sauce'); //Importation : nos routes sauce
+const userRoutes = require('./routes/user'); //Importation : nos routes utilisateur
 
 //sécurité
 const dotenv = require("dotenv").config(); //pour gérer les variables d'environnement afin de protéger les données sensibles

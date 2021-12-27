@@ -1,19 +1,16 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const jwt = require('jsonwebtoken'); //Importation : jsonwebtoken pour pouvoir créer et vérifier les tokens d'authentification
 
 module.exports = (req, res, next) => {
   try {
-    const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
-    const userId = decodedToken.userId;
+    const token = req.headers.authorization.split(' ')[1]; //Token récupéré
+    const decodedToken = jwt.verify(token, process.env.DB_TOKEN); //Token décodé
+    const userId = decodedToken.userId; //userId décodé
     if (req.body.userId && req.body.userId !== userId) {
-      throw 'User ID non valable !';
+      throw 'User ID invalide!'; //erreur si l'userId de la requête est différent de l'userId récupéré
     } else {
       next();
     }
   } catch {
-    res.status(401).json({
-      error: new Error('Requête non authentitfiée !')
-    });
+    res.status(401).json({error: error | 'Requête non authentifiée!' });
   }
 };
