@@ -1,5 +1,5 @@
-const express = require('express'); // on importe le framework express pour simplifier le développement de notre API
-const router = express.Router(); //on crée un routeur avec express
+const express = require('express'); // Importation : le framework express pour simplifier le développement de notre API
+const router = express.Router(); //Création d'un routeur avec express
 
 const userCtrl = require('../controllers/user');
 const passwordVerification = require('../middleware/password-verif');

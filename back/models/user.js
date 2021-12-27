@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator')
+const mongoose = require('mongoose'); //Importation : mongoose pour modéliser nos données qui seront ajoutées à notre BDD
+const uniqueValidator = require('mongoose-unique-validator'); //Importation : le package unique validator pour pré-valider les infos avant d'enregistrer 
 
-const userShcema = mongoose.Schema({
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true},
+const userSchema = mongoose.Schema({ // on crée un schéma de données avec la méthode Schema de mongoose
+	email: { type: String, required: true, unique: true },
+	password: { type: String, required: true }
 });
 
-userShcema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator); // pour être sûr qu'une adresse mail ne soit pas utilisée plusieurs fois (renforce unique : true)
 
-module.exports = mongoose.model ('User', userShcema);
+module.exports = mongoose.model('User', userSchema);
