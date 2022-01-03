@@ -59,6 +59,10 @@ exports.modifySauce = (req, res, next) => {
 exports.deleteSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id }) //avant de supprimer l'objet, on le cherche pour récupérer l'URL de l'image afin d'en extraire le nom du fichier et pouvoir le supprimer
     .then((sauce) => {
+      if (sauce.userId !== req.user) {  // on compare l'id de l'auteur de la sauce et l'id de l'auteur de la requête
+        res.status(401).json({message: "Action non autorisée"});  // si ce ne sont pas les mêmes id = code 401: unauthorized.
+        return sauce;
+      }
       const filename = sauce.imageUrl.split("/images/")[1]; //on récupère le nom de fichier
       fs.unlink(`images/${filename}`, () => {
         Sauce.deleteOne({ _id: req.params.id }) // Supprime qu'une seule sauce

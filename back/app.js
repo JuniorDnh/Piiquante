@@ -13,7 +13,6 @@ const helmet = require('helmet'); //pour sécuriser les entêtes HTTP et empêch
 const rateLimit  =  require ('express-rate-limit'); //pour limiter le nombre de requêtes effectuées par un utilisateur/une adresse IP pour un temps donné
 const mongoSanitize = require('express-mongo-sanitize'); // pour nettoyer le corps de la requête (pour éviter les injections de données)
 
-
 //connexion à la BDD
 mongoose.connect('mongodb+srv://DanhoIJ_p6:passwordp6@cluster0.028gc.mongodb.net/p6Db?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -45,4 +44,3 @@ app.use('/api/auth', userRoutes);
 
 
 module.exports = app;
-
