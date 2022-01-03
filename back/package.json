@@ -19,6 +19,7 @@
     "express-rate-limit": "^5.5.1",
     "express-validator": "^6.13.0",
     "helmet": "^4.6.0",
+    "http-server": "^14.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongo-sanitize": "^1.1.0",
     "mongoose": "^6.1.3",
